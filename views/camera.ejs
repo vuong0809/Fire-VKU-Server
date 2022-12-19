@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Connect Camera</title>
+    <%- include('./layout/head'); %>
+        <%- include('./layout/header'); %>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div id="connect" class="form-floating d-flex">
+            <input type="number" class="form-control" name="" id="user_id" value="3469747508247772258">
+            <!-- <input type="number" class="form-control" name="" id="user_id" value="3487899611869215778"> -->
+            <!-- <input type="number" class="form-control" name="" id="user_id" > -->
+            <label class="form-label" for="">User ID: </label>
+            <button id="btn_connect" class="btn btn-primary">Connect</button>
+        </div>
+
+
+        <div class="row mt-2" id="block-test" style="display: none;">
+            <div id="list_camera" class="col-md-2">
+                <div>
+                    <div class="col-md form-floating">
+                        <input class="form-control" type="number" name="width" id="fire-w" value="16">
+                        <label class="form-label" for="">width</label>
+                    </div>
+
+                    <div class="col-md form-floating">
+                        <input class="form-control" type="number" name="height" id="fire-h" value="25">
+                        <label class="form-label" for="">height</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div id="view-Cam">
+                    <video id="ViewResults" width="100%" autoplay controls></video>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="row m-1" style="background: #f5f5f5;">
+                    <h1 class="col-2 m-2"><i class="bi bi-thermometer"></i></h1>
+                    <div class="col-8 mt-2">
+                        <h4><span id="temp">00</span> &degC</h4>
+                        <p>temperature</p>
+                    </div>
+                </div>
+                <div class="row m-1" style="background: #f5f5f5; ">
+                    <h1 class="col-2 m-2"><i class="bi bi-speedometer"></i></h1>
+                    <div class="col-8 mt-2">
+                        <h4><span id="humi">00</span> %</h4>
+                        <p>humidity</p>
+                    </div>
+                </div>
+                <div class="row m-1" style="background: #f5f5f5;">
+                    <h1 class="col-2 m-2"><i class="bi bi-speedometer2"></i></h1>
+                    <div class="col-8 mt-2">
+                        <h4><span id="mois">00</span> %</h4>
+                        <p>surface moisture</p>
+                    </div>
+                </div>
+                <div class="row m-1" style="background: #f5f5f5;">
+                    <h1 class="col-2 m-2"><i class="bi bi-wind"></i></h1>
+                    <div class="col-8 mt-2">
+                        <h4><span id="smoke">0</span></h4>
+                        <p>smoke</p>
+                    </div>
+                </div>
+                <figure class="highcharts-figure">
+                    <div id="container-speed" class="chart-container" style="height: 200px;"></div>
+                </figure>
+                <div style="display: none;">
+                    <input class="form-control" type="text" id="sensor" value="26.65 92 0.26 1">
+                    <button id="btn_predict" class="btn btn-primary">Predict</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <textArea id="Serial" class="form-control" cols="4" rows="5" disabled></textArea>
+    </div>
+
+    </div>
+</body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/3.11.0/tf.min.js"
+    integrity="sha512-ufFDHpWUqU90/5cbhnHp5ZWTtyiYNWqBNn/E5/jDEka1BBA4N74U8/bZn3HP1Ny1Ku4hcs+feHv4KTdb6GbBMA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/camera.js"></script>
+
+<footer>
+    <%- include('./layout/footer');%>
+</footer>
+
+</html>

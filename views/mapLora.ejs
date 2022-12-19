@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Lora Maps</title>
+
+  <%- include('./layout/head'); %>
+</head>
+<%- include('./layout/header'); %>
+
+  <body>
+    <div id="map" style="height: 80%; width: 100%;"></div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHEpxiql-60RbABZAGAkaFZQxBNQo7zqw&callback=initMap&libraries=&v=weekly"
+      async></script>
+    <script src="./js/mapsLora/index.js"></script>
+  </body>
+  <footer>
+    <%- include('./layout/footer');%>
+  </footer>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Connect Camera</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="list_camera" style="display: none;" class="col-3">
+                <!-- <button onclick="enableTest()">test video</button> -->
+
+            </div>
+            <div class="col-9">
+                <div class="form-floating">
+                    <input type="number" class="form-control" name="" id="user_id">
+                    <label class="form-label" for="">User ID: </label>
+                </div>
+                <div id="view-Cam">
+                    <canvas id="results" style="display: none;"></canvas>
+                </div>
+
+            </div>
+        </div>
+        <div>
+            <div>
+                <input type="text" id="sensor" value="26.65 92 0.26 0">
+                <button id="btn_predict">predict</button>
+            </div>
+            <button id="connectSerial" class="btn btn-primary">Connect Gateway</button>
+            <button id="writeSerial" class="btn btn-primary">Send</button>
+            <div id="target"></div>
+        </div>
+
+    </div>
+</body>
+<script type="text/javascript" src="http://localhost:8000/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/3.11.0/tf.min.js"
+    integrity="sha512-ufFDHpWUqU90/5cbhnHp5ZWTtyiYNWqBNn/E5/jDEka1BBA4N74U8/bZn3HP1Ny1Ku4hcs+feHv4KTdb6GbBMA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/renderer.js"></script>
+
+<footer>
+</footer>
+
+</html>

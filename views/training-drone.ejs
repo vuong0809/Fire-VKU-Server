@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Training</title>
+    <title></title>
+    <%- include('./layout/head'); %>
+        <%- include('./layout/header'); %>
+</head>
+
+<body>
+    <div class="container mt-3 mb-3">
+        <div class=" row border rounded">
+            <div class="container">
+                <h4 class="text-center m-4" style="font-family: Arial, Helvetica, sans-serif;">UPLOAD DATA SET</h4>
+                <form id="form_upload" action="/api/update-dataset" method="post" enctype="multipart/form-data">
+                    <div class="d-flex">
+                        <label class="form-label m-2" for="">DataSet</label>
+                        <input class="form-control m-1" type="file" name="dataset" id="" accept=".zip">
+                        <input class="btn btn-primary m-1" type="submit" name="" id="" value="Upload">
+                    </div>
+                </form>
+            </div>
+            <div class="container">
+                <h4 class="text-center m-4" style="font-family: Arial, Helvetica, sans-serif;">CREATE FILE TRAINING</h4>
+                <form id="form_create_dataset" action="" method="post">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-3">
+                                <label class="form-label m-2" for="">DataSet</label>
+                                <select id="list-file" name="dataset" class="form-select form-select-lg"></select>
+                                <label class="form-label m-2" for="">Path</label>
+                                <input class="form-control m-1" type="text" name="path" id="">
+                                <label class="form-label m-2" for="">Train</label>
+                                <input class="form-control m-1" type="text" name="train" id="">
+                                <label class="form-label m-2" for="">Val</label>
+                                <input class="form-control m-1" type="text" name="val" id="">
+                                <!-- <label class="form-label m-2" for="">Number Object</label>
+                                <input class="form-control m-1" type="number" name="nc" value="0" id=""> -->
+                            </div>
+                            <div class="col-9">
+                                <label class="form-label m-2" for="">Name</label>
+                                <textArea name="names" id="names"  class="form-control" style="resize: none;" rows="12">['person', 'bicycle']</textArea>
+                            </div>
+                        </div>
+                        <input class="btn btn-primary m-1" type="submit" name="" id="" value="Create">
+                    </div>
+                </form>
+            </div>
+            <div class="mb-3">
+                <h4 class="text-center m-4" style="font-family: Arial, Helvetica, sans-serif;">TRAINING</h4>
+                <form id="form_Train" action="" method="post">
+                    <div class="row mt-2 mb-2">
+                        <div class="col form-floating">
+                            <input class="form-control" type="text" value="320" name="img" id="">
+                            <label class="form-label" for="">Image Size</label>
+                        </div>
+                        <div class="col form-floating">
+                            <input class="form-control" type="text" value="1" name="batch" id="">
+                            <label class="form-label" for="">Batch Size</label>
+                        </div>
+                        <div class="col form-floating">
+                            <input class="form-control" type="text" value="1" name="epoch" id="">
+                            <label class="form-label" for="">Epoch</label>
+                        </div>
+                        <div class="col form-floating">
+                            <select id="list-dataset" name="data" class="form-select form-select-lg"></select>
+                            <label class="form-label" for="">DataSet</label>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button id="btn_train" class="btn btn-primary" disabled>
+                            <span class="spinner-border spinner-border-sm"></span>
+                            Training..
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <textArea id="console" class="form-control" rows="5" style="resize: none;" disabled></textArea>
+        </div>
+
+        <div class="lines-content monaco-editor-background"></div>
+    </div>
+</body>
+<script src="socket.io/socket.io.js"></script>
+<script src="js/training.js"></script>
+<footer>
+    <%- include('./layout/footer');%>
+</footer>
+
+</html>

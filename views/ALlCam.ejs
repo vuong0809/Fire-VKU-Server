@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Stream Camera</title>
+  <%- include('./layout/head'); %>
+    <%- include('./layout/header'); %>
+</head>
+
+<body>
+  <div id="all_cam"> </div>
+</body>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script>
+  const all = document.getElementById('all_cam');
+  const socket = io();
+
+  socket.on("connect", () => {
+    socket.on(socket.id, (msg) => {
+      msg.forEach(element => {
+        const item = document.createElement('img');
+        item.id = element;
+        item.width = 320;
+        item.src = 'img/nocam/noCamera.jpg'
+        all.append(item);
+      });
+    });
+
+    socket.on('connect Socket', (msg) => {
+      const item = document.createElement('img');
+      item.id = msg;
+      item.width = 320;
+      item.src = 'img/nocam/noCamera.jpg'
+      all.append(item);
+    });
+
+    socket.on('disconnect Socket', (msg) => {
+      const item = document.getElementById(msg)
+      all.removeChild(item);
+    });
+
+    socket.on('AllCam', (msg) => {
+      const id = document.getElementById(msg.socketID);
+      id.src = msg.img;
+    });
+
+  });
+</script>
+
+<footer>
+  <%- include('./layout/footer');%>
+</footer>
+
+</html>
